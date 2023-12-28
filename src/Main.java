@@ -12,7 +12,7 @@ public class Main {
         music.setSinger("Froid");
         music.setName("Lamentável parte III");
         music.setAlbum("O pior disco do ano");
-        for (int i = 0; i < 5000; i++) {
+        for (int i = 0; i < 2000; i++) {
             music.playAudio();
         }
 
@@ -40,7 +40,7 @@ public class Main {
         podcast.setName("Podpah");
         podcast.setSeason(4);
         podcast.setDurationInMinutes(120);
-        for (int i = 0; i < 51099; i++) {
+        for (int i = 0; i < 50999; i++) {
             podcast.playAudio();
         }
 
@@ -60,13 +60,12 @@ public class Main {
         ep.setNameEp("Space Today - PodPah #528");
         ep.setNumberEp(528);
         ep.setPodcast(podcast);
-        ep.setTotalViews(200);
 
         ep.showInfos();
         ep.getClassification();
 
 
-        filter.filter(ep);
+        filter.filter(podcast);
         calc.setPlaylist(true);
         calc.includeToPlaylist(podcast);
         System.out.println("************************************** \n");

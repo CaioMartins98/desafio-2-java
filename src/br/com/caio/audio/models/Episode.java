@@ -2,11 +2,10 @@ package br.com.caio.audio.models;
 
 import br.com.caio.audio.calculo.Classification;
 
-public class Episode implements Classification {
+public class Episode extends Audio implements Classification {
     private int numberEp;
     private String nameEp;
     private Podcast podcast;
-    private int totalViews;
 
 
     public int getNumberEp() {
@@ -33,32 +32,25 @@ public class Episode implements Classification {
         this.podcast = podcast;
     }
 
-    public int getTotalViews() {
-        return totalViews;
-    }
 
-    public void setTotalViews(int totalViews) {
-        this.totalViews = totalViews;
-    }
 
     public void showInfos() {
-        System.out.println("Episódio número: " + numberEp);
-        System.out.println("Visualizações: " + totalViews);
-        System.out.println("Nome episódio: " + nameEp);
+        System.out.println("Episódio número: " + getNumberEp());
+        System.out.println("Nome episódio: " + getNameEp());
 
     }
 
     @Override
     public String getClassification() {
-        if (totalViews > 10000) {
+        if (getTotalPlays() > 10000) {
             return "★★★★★";
-        } else if (totalViews >= 5000 && totalViews <= 9999) {
+        } else if (getTotalPlays() >= 5000 && getTotalPlays()  <= 9999) {
             return "★★★★";
-        } else if (totalViews >= 3000 && totalViews <= 4999) {
+        } else if (getTotalPlays()  >= 3000 && getTotalPlays()  <= 4999) {
             return "★★★";
-        } else if (totalViews >= 2000 && totalViews <= 3999) {
+        } else if (getTotalPlays()  >= 2000 && getTotalPlays()  <= 3999) {
             return "★★★";
-        } else if (totalViews >= 1000 && totalViews <= 2999) {
+        } else if (getTotalPlays()  >= 1000 && getTotalPlays()  <= 2999) {
             return "★★";
         }
         return "★";
